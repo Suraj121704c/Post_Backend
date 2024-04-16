@@ -8,7 +8,7 @@ const middlewares = jsonServer.defaults();
 server.use(middlewares);
 
 // Custom route for search functionality
-server.get("/post", (req, res) => {
+server.get("/posts", (req, res) => {
   const { title, name } = req.query;
 
   // Assuming db.json contains posts
@@ -26,6 +26,8 @@ server.get("/post", (req, res) => {
       post.name.toLowerCase().includes(name.toLowerCase())
     );
     res.json(filteredPosts);
+  } else {
+    res.json(posts);
   }
 });
 
