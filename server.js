@@ -26,6 +26,8 @@ server.get("/post", (req, res) => {
       post.name.toLowerCase().includes(name.toLowerCase())
     );
     res.json(filteredPosts);
+  }  else {
+    res.json(posts);
   }
 });
 
