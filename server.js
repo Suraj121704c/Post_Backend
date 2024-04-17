@@ -10,7 +10,7 @@ server.use(cors());
 server.use(middlewares);
 
 // Custom route for search functionality
-server.get("/posts", (req, res) => {
+server.get("/post", (req, res) => {
   const { title, name,id } = req.query;
 
   // Assuming db.json contains posts
@@ -30,15 +30,7 @@ server.get("/posts", (req, res) => {
     );
     res.json(filteredPosts);
     
-  } else if (id) {
-    
-     const filteredPosts = posts.filter((post) =>
-      post.id.includes(id)
-    );
-    res.json(filteredPosts);
-    
-  }
-  else {
+  } else {
     res.json(posts);
   }
 });
