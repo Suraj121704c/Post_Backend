@@ -33,7 +33,7 @@ server.get("/posts", (req, res) => {
   } else if (id) {
     
      const filteredPosts = posts.filter((post) =>
-      post.id.toLowerCase().includes(id.toLowerCase())
+      post.id.includes(id)
     );
     res.json(filteredPosts);
     
